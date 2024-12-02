@@ -9,3 +9,4 @@ Route::get('/', function () {
 
 // Categories
 Route::get('/categories', [App\Http\Controllers\CategoryController::class, 'index']);
+Route::post('/categories', [App\Http\Controllers\CategoryController::class, 'store']);

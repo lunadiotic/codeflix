@@ -23,4 +23,37 @@ class CategoryController extends Controller
 
         return $categories;
     }
+
+    public function store(Request $request)
+    {
+        DB::table('categories')->insert([
+            'title' => 'Action',
+            'slug' => 'action',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        DB::table('categories')->insert([
+            ['title' => 'Drama', 'slug' => 'drama', 'created_at' => now(), 'updated_at' => now()],
+            ['title' => 'Horror', 'slug' => 'horror', 'created_at' => now(), 'updated_at' => now()],
+            ['title' => 'Comedy', 'slug' => 'comedy', 'created_at' => now(), 'updated_at' => now()],
+        ]);
+
+
+        $category = new Category();
+        $category->name = $request->name;
+        $category->slug = $request->slug;
+        $category->save();
+
+        Category::create([
+            'title' => 'Fantasy',
+            'slug' => 'fantasy',
+        ]);
+
+        Category::insert([
+            ['title' => 'Documentary', 'slug' => 'documentary', 'created_at' => now(), 'updated_at' => now()],
+            ['title' => 'Thriller', 'slug' => 'thriller', 'created_at' => now(), 'updated_at' => now()],
+            ['title' => 'Musical', 'slug' => 'musical', 'created_at' => now(), 'updated_at' => now()],
+        ]);
+    }
 }
