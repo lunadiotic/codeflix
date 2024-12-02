@@ -24,7 +24,7 @@ class CategoryController extends Controller
         return $categories;
     }
 
-    public function store(Request $request)
+    public function store()
     {
         DB::table('categories')->insert([
             'title' => 'Action',
@@ -41,8 +41,8 @@ class CategoryController extends Controller
 
 
         $category = new Category();
-        $category->name = $request->name;
-        $category->slug = $request->slug;
+        $category->name = 'Action';
+        $category->slug = 'action';
         $category->save();
 
         Category::create([
@@ -55,5 +55,32 @@ class CategoryController extends Controller
             ['title' => 'Thriller', 'slug' => 'thriller', 'created_at' => now(), 'updated_at' => now()],
             ['title' => 'Musical', 'slug' => 'musical', 'created_at' => now(), 'updated_at' => now()],
         ]);
+    }
+
+    public function update()
+    {
+        DB::table('categories')->where('id', 1)->update([
+            'title' => 'Updated Title',
+            'slug' => 'updated-title',
+            'updated_at' => now(),
+        ]);
+
+        $category = Category::find(1);
+        if ($category) {
+            $category->title = 'Updated Title';
+            $category->slug = 'updated-title';
+            $category->save();
+        }
+
+        Category::where('id', 1)->update([
+            'title' => 'Updated Title',
+            'slug' => 'updated-title',
+        ]);
+    }
+
+    public function delete()
+    {
+        DB::table('categories')->where('id', 1)->delete();
+        Category::destroy(1);
     }
 }
