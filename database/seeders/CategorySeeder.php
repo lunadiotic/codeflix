@@ -36,7 +36,7 @@ class CategorySeeder extends Seeder
         // Insert each category into the database
         foreach ($categories as $category) {
             DB::table('categories')->insert([
-                'title' => $category,
+                'name' => $category,
                 'slug' => Str::of($category)->slug('-'),
                 'created_at' => now(),
                 'updated_at' => now(),
