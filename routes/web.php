@@ -9,4 +9,6 @@ Route::get('/', function () {
 
 // Categories
 Route::get('/categories', [App\Http\Controllers\CategoryController::class, 'index']);
-Route::post('/categories', [App\Http\Controllers\CategoryController::class, 'store']);
+Route::get('/categories', [App\Http\Controllers\CategoryController::class, 'store']);
+Route::get('/categories', [App\Http\Controllers\CategoryController::class, 'update']);
+Route::get('/categories', [App\Http\Controllers\CategoryController::class, 'delete']);
