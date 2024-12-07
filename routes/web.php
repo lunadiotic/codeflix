@@ -16,3 +16,9 @@ Route::get('/categories/delete', [App\Http\Controllers\CategoryController::class
 // Rating
 Route::get('/ratings', [App\Http\Controllers\RatingController::class, 'index']);
 Route::get('/ratings/create', [App\Http\Controllers\RatingController::class, 'store']);
+
+// Movies
+Route::get('/movies', [App\Http\Controllers\MovieController::class, 'index']);
+Route::get('/movies/attach', [App\Http\Controllers\MovieController::class, 'attach']);
+Route::get('/movies/detach', [App\Http\Controllers\MovieController::class, 'detach']);
+Route::get('/movies/sync', [App\Http\Controllers\MovieController::class, 'sync']);
