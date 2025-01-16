@@ -1,0 +1,225 @@
+body,
+html {
+    background-color: #132029;
+    height: 100%;
+    overflow: hidden;
+}
+
+@font-face {
+    font-family: "kanit-regular";
+    src: url("../fonts/Kanit/Kanit-Regular.ttf");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Montserrat-Regular";
+    src: url("../fonts/Montserrat/static/Montserrat-Regular.ttf");
+}
+
+.alert {
+    margin-bottom: 20px;
+}
+
+.alert ul {
+    padding-left: 20px;
+}
+
+.is-invalid {
+    border-color: #dc3545 !important;
+}
+
+.invalid-feedback {
+    display: block;
+    color: #dc3545;
+    font-size: 0.875em;
+    margin-top: 4px;
+}
+
+/* Tambahkan CSS yang sudah ada sebelumnya */
+
+.bg-login {
+    background: url(../img/BgLogin.png);
+    background-size: 70% auto;
+    background-position: left bottom;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+
+.bg-login .row {
+    height: 100vh;
+}
+
+.login-photo {
+    width: 100%;
+    margin: 0;
+    overflow: hidden;
+}
+
+.codeflix-title {
+    width: 211px;
+    height: 33px;
+}
+
+.codeflix-sign-in {
+    color: #fff;
+    font-weight: 600;
+    font-size: 42px;
+    margin-top: 3rem;
+    font-family: "Kanit", sans-serif;
+}
+
+.f-email,
+.f-password {
+    display: flex;
+    flex-direction: column-reverse;
+    position: relative;
+}
+.f-email input:focus + label,
+.f-password input:focus + label {
+    color: #1abc9c !important;
+}
+
+.form-label-email {
+    color: #fff;
+    font-family: "Kanit", sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.form-email {
+    height: 50px;
+    border-radius: 5px;
+    background-color: transparent;
+    color: #fff;
+}
+
+.form-email:focus {
+    color: #fff;
+    background-color: transparent;
+    border: 1px solid #1abc9c;
+}
+
+.toggle-password {
+    position: absolute;
+    bottom: 18px;
+    right: 18px;
+    color: #808080;
+    cursor: pointer;
+}
+
+.form-label-password {
+    color: #fff;
+    font-family: "Kanit", sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.form-password {
+    height: 50px;
+    border-radius: 5px;
+    background-color: transparent;
+    color: #fff;
+}
+
+.form-password:focus {
+    color: #fff;
+    background-color: transparent;
+    border: 1px solid #1abc9c;
+}
+
+.label-check {
+    color: #fff;
+    font-family: "Kanit", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.forgot-password {
+    text-decoration: none;
+    color: #1abc9c;
+    font-family: "Kanit", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.btn-sign-in {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    background-color: #1abc9c;
+    border-color: #1abc9c;
+    font-family: "Kanit", sans-serif;
+    font-weight: 800;
+    font-size: 14px;
+}
+
+.btn-sign-in:hover {
+    background-color: transparent;
+    border-color: #1abc9c;
+}
+
+.btn-sign-google {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    background-color: transparent;
+    border-color: #fff;
+    font-family: "Kanit", sans-serif;
+    font-weight: 800;
+    font-size: 14px;
+}
+
+.btn-sign-google:hover {
+    background-color: #1abc9c;
+    border-color: #1abc9c;
+}
+
+.register {
+    font-family: "Kanit", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #fff;
+}
+
+.small {
+    text-decoration: none;
+    font-size: 16px;
+    color: #1abc9c;
+}
+
+@media (max-width: 767px) {
+    .login-photo {
+        display: none;
+    }
+
+    .codeflix-sign-in {
+        font-size: 30px;
+    }
+
+    .form-label-email,
+    .form-label-password {
+        font-size: 16px;
+    }
+
+    .form-email,
+    .form-password {
+        width: 100%;
+    }
+
+    .btn-sign-in,
+    .btn-sign-google {
+        width: 100%;
+        font-size: 14px;
+    }
+
+    .register {
+        margin-top: 5rem;
+    }
+}
+
+@media (max-width: 460px) {
+    .bg-login {
+        background-size: 100% auto;
+    }
+}
