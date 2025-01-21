@@ -45,4 +45,17 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function memberships(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Membership::class);
+    }
+
+    public function hasMembershipPlan(): bool
+    {
+        return $this->memberships()
+            ->where('active', true)
+            ->where('end_date', '>', now())
+            ->exists();
+    }
 }
