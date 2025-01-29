@@ -8,3 +8,4 @@ Route::get('/', function () {
 });
 
 Route::get('/subscribe/plans', [SubscribeController::class, 'showPlans'])->name('subscribe.plans');
+Route::get('/subscribe/plan/{plan}', [SubscribeController::class, 'checkoutPlan'])->name('subscribe.checkout');
