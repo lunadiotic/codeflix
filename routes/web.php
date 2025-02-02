@@ -16,7 +16,7 @@ Route::get('/subscribe/success', [SubscribeController::class, 'showSuccess'])->n
 
 
 Route::get('/home', function () {
-    return view('home');
+    return view('movies.index');
 })->middleware(['auth', 'check.device.limit'])->name('home');
 
 Route::post('/logout', function (Request $request) {
