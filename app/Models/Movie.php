@@ -24,4 +24,9 @@ class Movie extends Model
     protected $casts = [
         'release_date' => 'date',
     ];
+
+    public function categories(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    {
+        return $this->belongsToMany(Category::class);
+    }
 }
