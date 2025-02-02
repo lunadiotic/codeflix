@@ -4,13 +4,13 @@
             Kategori
         </a>
         <div class="dropdown-menu">
-            <ul>
-                <li>
-                    <a class="dropdown-item" href="#">
-                        Action
-                    </a>
-                </li>
-            </ul>
+            @foreach ($categories as $chunk)
+                <ul>
+                    @foreach ($chunk as $category)
+                        <li><a class="dropdown-item" href="#">{{ $category->title }}</a></li>
+                    @endforeach
+                </ul>
+            @endforeach
         </div>
     </li>
 </ul>
