@@ -2,19 +2,18 @@
 
 namespace App\Http\Middleware;
 
-use App\Models\UserDevice;
-use App\Services\DeviceService;
+use App\Services\DeviceLimitService;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Route;
 use Illuminate\Support\Facades\Session;
 use Symfony\Component\HttpFoundation\Response;
 
-class RemoveDeviceBeforeLogout
+class LogoutDevice
 {
     protected $deviceService;
 
-    public function __construct(DeviceService $deviceService)
+    public function __construct(DeviceLimitService $deviceService)
     {
         $this->deviceService = $deviceService;
     }
@@ -26,7 +25,6 @@ class RemoveDeviceBeforeLogout
      */
     public function handle(Request $request, Closure $next): Response
     {
-        // Pastikan middleware hanya berjalan jika user mengakses route logout
         if ($this->isLogoutRequest($request)) {
             $deviceId = Session::get('device_id');
 

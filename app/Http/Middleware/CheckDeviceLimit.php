@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use App\Models\UserDevice;
-use App\Services\DeviceService;
+use App\Services\DeviceLimitService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -12,7 +12,7 @@ class CheckDeviceLimit
 {
     protected $deviceService;
 
-    public function __construct(DeviceService $deviceService)
+    public function __construct(DeviceLimitService $deviceService)
     {
         $this->deviceService = $deviceService;
     }
