@@ -17,6 +17,7 @@ Route::get('/subscribe/success', [SubscribeController::class, 'showSuccess'])->n
 
 
 Route::get('/home', [MovieController::class, 'index'])->name('home');
+Route::get('/movies/{movie:slug}', [MovieController::class, 'show'])->name('movies.show');
 
 Route::post('/logout', function (Request $request) {
     // Laravel Fortify menangani logout, kita hanya tambahkan middleware

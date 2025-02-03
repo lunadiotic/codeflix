@@ -32,11 +32,13 @@
                 @foreach ($latestMovies as $movie)
                     <div class="swiper-slide">
                         <div class="card">
-                            <img src="{{ $movie->poster }}" class="img-fluid h-100" alt="...">
-                            <span class="badge rounded-pill text-bg-dark badge-rating">
-                                <img class="star-rating" src="assets/img/star-rating.png" alt="">
-                                ({{ $movie->average_rating }})
-                            </span>
+                            <a href="{{ route('movies.show', $movie->slug) }}">
+                                <img src="{{ $movie->poster }}" class="img-fluid h-100" alt="...">
+                                <span class="badge rounded-pill text-bg-dark badge-rating">
+                                    <img class="star-rating" src="assets/img/star-rating.png" alt="">
+                                    ({{ $movie->average_rating }})
+                                </span>
+                            </a>
                         </div>
                     </div>
                 @endforeach
