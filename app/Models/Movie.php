@@ -29,4 +29,14 @@ class Movie extends Model
     {
         return $this->belongsToMany(Category::class);
     }
+
+    public function ratings(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Rating::class);
+    }
+
+    public function getAverageRatingAttribute(): float
+    {
+        return $this->ratings()->avg('rating');
+    }
 }
