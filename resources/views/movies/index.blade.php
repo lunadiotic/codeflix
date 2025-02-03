@@ -29,60 +29,17 @@
             <!-- Additional required wrapper -->
             <div class="swiper-wrapper">
                 <!-- Slides -->
-                <div class="swiper-slide">
-                    <div class="card">
-                        <img src="assets/img/Trex.png" class="img-fluid h-100" alt="...">
-                        <span class="badge rounded-pill text-bg-dark badge-rating">
-                            <img class="star-rating" src="assets/img/star-rating.png" alt="">
-                            (8,3)
-                        </span>
+                @foreach ($latestMovies as $movie)
+                    <div class="swiper-slide">
+                        <div class="card">
+                            <img src="{{ $movie->poster }}" class="img-fluid h-100" alt="...">
+                            <span class="badge rounded-pill text-bg-dark badge-rating">
+                                <img class="star-rating" src="assets/img/star-rating.png" alt="">
+                                ({{ $movie->average_rating }})
+                            </span>
+                        </div>
                     </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="card">
-                        <img src="assets/img/Foundation.png" class="img-fluid h-100" alt="...">
-                        <span class="badge rounded-pill text-bg-dark badge-rating">
-                            <img class="star-rating" src="assets/img/star-rating.png" alt="">
-                            (8,3)
-                        </span>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="card">
-                        <img src="assets/img/Godzilla Kingkong.png" class="img-fluid h-100" alt="...">
-                        <span class="badge rounded-pill text-bg-dark badge-rating">
-                            <img class="star-rating" src="assets/img/star-rating.png" alt="">
-                            (8,3)
-                        </span>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="card">
-                        <img src="assets/img/Lowlifes.png" class="img-fluid h-100" alt="...">
-                        <span class="badge rounded-pill text-bg-dark badge-rating">
-                            <img class="star-rating" src="assets/img/star-rating.png" alt="">
-                            (8,3)
-                        </span>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="card">
-                        <img src="assets/img/Boy.png" class="img-fluid h-100" alt="...">
-                        <span class="badge rounded-pill text-bg-dark badge-rating">
-                            <img class="star-rating" src="assets/img/star-rating.png" alt="">
-                            (8,3)
-                        </span>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="card">
-                        <img src="assets/img/Fights.png" class="img-fluid h-100" alt="...">
-                        <span class="badge rounded-pill text-bg-dark badge-rating">
-                            <img class="star-rating" src="assets/img/star-rating.png" alt="">
-                            (8,3)
-                        </span>
-                    </div>
-                </div>
+                @endforeach
             </div>
             <!-- If we need pagination -->
             <div class="swiper-pagination"></div>
@@ -101,60 +58,17 @@
             <!-- Additional required wrapper -->
             <div class="swiper-wrapper">
                 <!-- Slides -->
-                <div class="swiper-slide">
-                    <div class="card">
-                        <img src="assets/img/Trex.png" class="img-fluid h-100" alt="...">
-                        <span class="badge rounded-pill text-bg-dark badge-rating">
-                            <img class="star-rating" src="assets/img/star-rating.png" alt="">
-                            (8,3)
-                        </span>
+                @foreach ($popularMovies as $movie)
+                    <div class="swiper-slide">
+                        <div class="card">
+                            <img src="{{ $movie->poster }}" class="img-fluid h-100" alt="...">
+                            <span class="badge rounded-pill text-bg-dark badge-rating">
+                                <img class="star-rating" src="assets/img/star-rating.png" alt="">
+                                ({{ $movie->average_rating }})
+                            </span>
+                        </div>
                     </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="card">
-                        <img src="assets/img/Foundation.png" class="img-fluid h-100" alt="...">
-                        <span class="badge rounded-pill text-bg-dark badge-rating">
-                            <img class="star-rating" src="assets/img/star-rating.png" alt="">
-                            (8,3)
-                        </span>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="card">
-                        <img src="assets/img/Godzilla Kingkong.png" class="img-fluid h-100" alt="...">
-                        <span class="badge rounded-pill text-bg-dark badge-rating">
-                            <img class="star-rating" src="assets/img/star-rating.png" alt="">
-                            (8,3)
-                        </span>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="card">
-                        <img src="assets/img/Lowlifes.png" class="img-fluid h-100" alt="...">
-                        <span class="badge rounded-pill text-bg-dark badge-rating">
-                            <img class="star-rating" src="assets/img/star-rating.png" alt="">
-                            (8,3)
-                        </span>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="card">
-                        <img src="assets/img/Boy.png" class="img-fluid h-100" alt="...">
-                        <span class="badge rounded-pill text-bg-dark badge-rating">
-                            <img class="star-rating" src="assets/img/star-rating.png" alt="">
-                            (8,3)
-                        </span>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="card">
-                        <img src="assets/img/Fights.png" class="img-fluid h-100" alt="...">
-                        <span class="badge rounded-pill text-bg-dark badge-rating">
-                            <img class="star-rating" src="assets/img/star-rating.png" alt="">
-                            (8,3)
-                        </span>
-                    </div>
-                </div>
+                @endforeach
             </div>
             <!-- If we need pagination -->
             <div class="swiper-pagination"></div>

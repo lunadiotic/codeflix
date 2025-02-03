@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MovieController;
 use App\Http\Controllers\SubscribeController;
 use App\Http\Middleware\RemoveDeviceBeforeLogout;
 use Illuminate\Http\Request;
@@ -15,9 +16,7 @@ Route::post('/subscribe/checkout', [SubscribeController::class, 'processCheckout
 Route::get('/subscribe/success', [SubscribeController::class, 'showSuccess'])->name('subscribe.success');
 
 
-Route::get('/home', function () {
-    return view('movies.index');
-})->middleware(['auth', 'check.device.limit'])->name('home');
+Route::get('/home', [MovieController::class, 'index'])->name('home');
 
 Route::post('/logout', function (Request $request) {
     // Laravel Fortify menangani logout, kita hanya tambahkan middleware
