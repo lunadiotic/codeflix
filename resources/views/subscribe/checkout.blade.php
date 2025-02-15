@@ -43,15 +43,58 @@
                 </label>
             </div>
 
-            <form action="{{ route('subscribe.process') }}" method="POST">
-                @csrf
-                <input type="hidden" name="plan_id" value="{{ $plan->id }}">
-                <input type="hidden" name="total_payment" value="{{ $plan->price * 0.12 }}">
-                <button type="submit" class="w-100 btn btn-green">Continue</button>
+            <form action="#" method="POST">
+                <button type="submit" class="w-100 btn btn-green" id="pay-button">Continue</button>
             </form>
         </div>
     </div>
 @endsection
 
 @section('scripts')
+    <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="{{ config('midtrans.client_key') }}">
+    </script>
+    <script>
+        const payButton = document.querySelector('#pay-button');
+        payButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            fetch('/checkout', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
+                    },
+                    body: JSON.stringify({
+                        plan_id: '{{ $plan->id }}',
+                        amount: '{{ $plan->price * 1.1 }}'
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === 'success') {
+                        window.snap.pay(data.snap_token, {
+                            onSuccess: function(result) {
+                                window.location.href = '/subscribe/success';
+                            },
+                            onPending: function(result) {
+                                window.location.href = '/payment/pending';
+                            },
+                            onError: function(result) {
+                                window.location.href = '/payment/error';
+                            },
+                            onClose: function() {
+                                alert(
+                                    'You closed the payment window without completing the payment'
+                                    );
+                            }
+                        });
+                    } else {
+                        alert('Payment failed to initialize');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Something went wrong');
+                });
+        });
+    </script>
 @endsection
